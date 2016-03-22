@@ -1,12 +1,14 @@
 package co.eliel.data;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by eliel on 21/03/16.
  */
 public class Address {
-    private String country;
-    private String state;
-    private String streetAddress;
+    @JsonProperty("country") private String country;
+    @JsonProperty("state") private String state;
+    @JsonProperty("streetAddress") private String streetAddress;
 
     public String getCountry() {
         return country;

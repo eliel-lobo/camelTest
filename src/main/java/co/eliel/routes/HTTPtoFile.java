@@ -1,6 +1,7 @@
 package co.eliel.routes;
 
 import co.eliel.processors.EchoProcessor;
+import co.eliel.processors.bean.JsonMaper;
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ public class HTTPtoFile extends RouteBuilder {
         from("timer://foo?fixedRate=true&period=5000")
                 .process(new EchoProcessor("HTTP to File"))
                 .to("http://localhost:8089/client")
+                .bean(new JsonMaper())
                 .to("file:data/outbox?fileName=data-${date:now:yyyyMMdd-HHmm}.json");
     }
 }

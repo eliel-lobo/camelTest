@@ -1,12 +1,14 @@
 package co.eliel.data;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by eliel on 21/03/16.
  */
 public class Client {
-    private String name;
-    private String email;
-    private Address address;
+    @JsonProperty("name") private String name;
+    @JsonProperty("email") private String email;
+    @JsonProperty("address") private Address address;
 
     public String getName() {
         return name;
@@ -31,4 +33,5 @@ public class Client {
     public void setAddress(Address address) {
         this.address = address;
     }
+
 }
